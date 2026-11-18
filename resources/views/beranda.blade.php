@@ -195,7 +195,7 @@
             color: white;
             letter-spacing: 1px;
             margin-bottom: 15px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         .hero-content p {
@@ -203,7 +203,7 @@
             color: white;
             max-width: 500px;
             margin: 0 auto;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
             line-height: 1.6;
         }
 
@@ -214,11 +214,13 @@
         /* RESPONSIVE BREAKPOINT HP (MAKSIMAL 768px) */
         @media (max-width: 768px) {
             .menu-toggle {
-                display: block; /* Munculkan garis tiga di HP */
+                display: block;
+                /* Munculkan garis tiga di HP */
             }
 
             .logo-img {
-                width: 48px; /* Perkecil sedikit ukuran logo di HP agar manis */
+                width: 48px;
+                /* Perkecil sedikit ukuran logo di HP agar manis */
                 height: 48px;
             }
 
@@ -228,13 +230,15 @@
 
             /* Ubah Nav Links Menjadi Menu Dropdown Tirai di HP */
             .nav-links {
-                display: none; /* Sembunyikan default-nya */
+                display: none;
+                /* Sembunyikan default-nya */
                 flex-direction: column;
                 position: absolute;
                 top: 75px;
                 left: 24px;
                 right: 24px;
-                background: rgba(10, 46, 43, 0.95); /* Menyesuaikan warna hijau tua CanyoKuy */
+                background: rgba(10, 46, 43, 0.95);
+                /* Menyesuaikan warna hijau tua CanyoKuy */
                 padding: 20px;
                 border-radius: 16px;
                 gap: 20px;
@@ -858,6 +862,7 @@
             }
         }
     </style>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
 <body>
@@ -866,9 +871,9 @@
         <div class="container-navbar">
             <div class="logo">
                 <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="logo-img">
-          
+
             </div>
-            
+
             <button class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </button>
@@ -891,7 +896,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-icon" style="margin-bottom: 15px;">
-                    <i class="fas fa-leaf" style="font-size: 56px; color: white; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));"></i>
+                    <i class="fas fa-leaf"
+                        style="font-size: 56px; color: white; filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));"></i>
                 </div>
                 <h1>CanyoKuy</h1>
                 <p class="small-bottom">
@@ -916,7 +922,8 @@
                     <div class="paket-info">
                         <div>
                             <div class="paket-name">Paket Round Trip</div>
-                            <div class="paket-desc">Paket ini cocok bagi peserta yang ingin menikmati suasana alam lebih lama</div>
+                            <div class="paket-desc">Paket ini cocok bagi peserta yang ingin menikmati suasana alam lebih
+                                lama</div>
                             <div class="paket-price">Rp 300.000</div>
                         </div>
                         <a href="detailRoundTrip" class="paket-btn">Lihat Detail</a>
@@ -927,7 +934,8 @@
                     <div class="paket-info">
                         <div>
                             <div class="paket-name">Paket Camp</div>
-                            <div class="paket-desc">Paket ini cocok bagi peserta yang ingin menikmati kegiatan alam dalam satu hari</div>
+                            <div class="paket-desc">Paket ini cocok bagi peserta yang ingin menikmati kegiatan alam
+                                dalam satu hari</div>
                             <div class="paket-price">Rp 330.000</div>
                         </div>
                         <a href="/detailCamp" class="paket-btn">Lihat Detail</a>
@@ -943,7 +951,8 @@
                 <span class="get-to-know-label">GET TO KNOW</span>
                 <h2 class="get-to-know-title">Air Terjun Mandin Damar</h2>
                 <p class="get-to-know-desc">
-                    Air terjun eksotis dengan tebing alami yang cocok untuk aktivitas canyoneering. Airnya yang jernih, bebatuan yang menantang, dan pemandangan alam yang masih asri.
+                    Air terjun eksotis dengan tebing alami yang cocok untuk aktivitas canyoneering. Airnya yang jernih,
+                    bebatuan yang menantang, dan pemandangan alam yang masih asri.
                 </p>
                 <a href="https://maps.app.goo.gl/iRXUAssJTah6TtEn9" class="get-to-know-btn">Jelajah Sekarang</a>
             </div>
@@ -958,7 +967,10 @@
                 <span class="tour-guide-label">TOUR GUIDE</span>
                 <h2 class="tour-guide-title">KPA ULIN</h2>
                 <p class="tour-guide-desc">
-                    KPA Ulin adalah Kelompok Pencinta Alam berbasis di Kabupaten Tanah Bumbu, Kalimantan Selatan, berdiri sejak 4 Mei 2016. Berfokus pada kegiatan alam bebas (gunung, gua, tebing, hutan, pantai), edukasi lingkungan, pelatihan keselamatan (caving, panjat tebing), serta aksi sosial. Aktif di kawasan Geopark Meratus, Gua Liang Bangkai, dan Air Terjun Mandin Damar.
+                    KPA Ulin adalah Kelompok Pencinta Alam berbasis di Kabupaten Tanah Bumbu, Kalimantan Selatan,
+                    berdiri sejak 4 Mei 2016. Berfokus pada kegiatan alam bebas (gunung, gua, tebing, hutan, pantai),
+                    edukasi lingkungan, pelatihan keselamatan (caving, panjat tebing), serta aksi sosial. Aktif di
+                    kawasan Geopark Meratus, Gua Liang Bangkai, dan Air Terjun Mandin Damar.
                 </p>
                 <a href="https://www.instagram.com/kpa_ulin/" class="tour-guide-btn">Kenalan Yuk</a>
             </div>
@@ -975,7 +987,7 @@
                     <i class="fas fa-chevron-left"></i>
                 </button>
                 <div class="testimoni-track" id="testimoniTrack">
-                    </div>
+                </div>
                 <button class="carousel-btn next" id="nextBtn">
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -989,7 +1001,8 @@
             <div class="footer-container">
                 <div class="footer-col">
                     <div class="footer-logo">CanyoKuy</div>
-                    <p class="footer-desc">Mari jelajahi air terjun sambil canyoneering. Temukan keindahan alam tersembunyi dan sensasi petualangan yang tak terlupakan.</p>
+                    <p class="footer-desc">Mari jelajahi air terjun sambil canyoneering. Temukan keindahan alam
+                        tersembunyi dan sensasi petualangan yang tak terlupakan.</p>
                 </div>
                 <div class="footer-col">
                     <h3>Menu</h3>
@@ -1011,24 +1024,25 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2026 <a href="{{ route('admin.login') }}" class="admin-link-footer">CanyoKuy</a>. All rights reserved.</p>
+                <p>© 2026 <a href="{{ route('admin.login') }}" class="admin-link-footer">CanyoKuy</a>. All rights
+                    reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // === LOGIKA UNTUK STRUKTUR BUTTON TOGGLE HAMBURGER (KHUSUS HP) ===
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
-            if(menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
+            if (menuToggle && navLinks) {
+                menuToggle.addEventListener('click', function () {
                     navLinks.classList.toggle('active');
-                    
+
                     // Ganti ikon bars ke ikon 'X' (close) saat menu terbuka
                     const icon = menuToggle.querySelector('i');
-                    if(navLinks.classList.contains('active')) {
+                    if (navLinks.classList.contains('active')) {
                         icon.className = 'fas fa-times';
                     } else {
                         icon.className = 'fas fa-bars';
@@ -1203,11 +1217,12 @@
             }, 100);
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateCardsPerView();
             loadTestimonialsFromDB();
         });
     </script>
+
 
 </body>
 

@@ -337,6 +337,7 @@
         }
     }
 </style>
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 
 <div class="dashboard-wrapper">
     <div class="main-column">

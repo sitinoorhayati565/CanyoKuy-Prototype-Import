@@ -7,7 +7,7 @@ use App\Http\Controllers\GuideController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Api\PackageGalleryController;
+use App\Http\Controllers\PackageGalleryController;
 
 // ========== HALAMAN DEPAN ==========
 Route::get('/', function () {
@@ -39,10 +39,12 @@ Route::get('/booking/roundtrip', function () {
     return view('booking-roundtrip');
 })->name('booking.roundtrip');
 
-Route::get('/tour/{id}', [TourController::class, 'detail'])->name('tour.detail');
+Route::get('/tour/{id}', [TourController::class, 'detail'])
+    ->name('tour.detail');
 
-// ========== API ROUTES (untuk AJAX) ==========
+// ========== API ROUTES ==========
 Route::prefix('api')->group(function () {
+
     // API Testimoni
     Route::get('/testimonials', [TestimonialController::class, 'getActiveTestimonials']);
     Route::post('/testimonials', [TestimonialController::class, 'store']);
@@ -61,7 +63,7 @@ Route::prefix('api')->group(function () {
     Route::put('/schedules/{id}', [ScheduleController::class, 'update']);
     Route::delete('/schedules/{id}', [ScheduleController::class, 'destroy']);
 
-    // API Booking LENGKAP
+    // API Booking
     Route::get('/bookings', [BookingController::class, 'getAllBookings']);
     Route::get('/bookings/stats', [BookingController::class, 'getStats']);
     Route::get('/bookings/{id}', [BookingController::class, 'getBooking']);
@@ -72,41 +74,63 @@ Route::prefix('api')->group(function () {
     Route::delete('/bookings/{id}', [BookingController::class, 'destroy']);
 });
 
-// ========== HALAMAN ADMIN ==========
+// ========== LOGIN ADMIN ==========
 Route::prefix('admin')->group(function () {
-    // Login & Logout
-    Route::get('/login', [AdminController::class, 'loginForm'])->name('admin.login');
-    Route::post('/login', [AdminController::class, 'login'])->name('admin.login.post');
-    Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::get('/login', [AdminController::class, 'loginForm'])
+        ->name('admin.login');
 
-    // Dashboard (perbaiki ini)
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
-
-    // Data Booking
-    Route::get('/booking', [BookingController::class, 'index'])->name('admin.booking');
-
-    // Kelola Jadwal
-    Route::get('/jadwal', [ScheduleController::class, 'index'])->name('admin.jadwal');
-
-    // Kelola Tour Guide
-    Route::get('/guide', [GuideController::class, 'index'])->name('admin.guide');
-
-    // Kelola Testimoni
-    Route::get('/testimoni', [TestimonialController::class, 'index'])->name('admin.testimoni');
-
-    // Galeri Paket
-    Route::get('/package-gallery', function () {
-        return view('admin.package-gallery');
-    })->name('admin.package-gallery');
-
-    // Profile & Ganti Password
-    Route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
-    Route::put('/profile', [AdminController::class, 'updateProfile'])->name('admin.update-profile');
-    Route::post('/change-password', [AdminController::class, 'changePassword'])->name('admin.change-password');
-
-    // Lupa Password
-    Route::get('/forgot-password', [AdminController::class, 'forgotPasswordForm'])->name('admin.forgot-password');
-    Route::post('/forgot-password', [AdminController::class, 'sendResetLink'])->name('admin.forgot-password.post');
-    Route::get('/reset-password/{token}', [AdminController::class, 'resetPasswordForm'])->name('admin.reset-password.form');
-    Route::post('/reset-password', [AdminController::class, 'resetPassword'])->name('admin.reset-password.post');
+    Route::post('/login', [AdminController::class, 'login'])
+        ->name('admin.login.post');
 });
+
+// ========== HALAMAN ADMIN (WAJIB LOGIN) ==========
+Route::prefix('admin')
+    ->middleware('auth:admin')
+    ->group(function () {
+
+        Route::get('/logout', [AdminController::class, 'logout'])
+            ->name('admin.logout');
+
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])
+            ->name('admin.dashboard');
+
+        // Data Booking
+        Route::get('/booking', [BookingController::class, 'index'])
+            ->name('admin.booking');
+
+        // Kelola Jadwal
+        Route::get('/jadwal', [ScheduleController::class, 'index'])
+            ->name('admin.jadwal');
+
+        // Kelola Tour Guide
+        Route::get('/guide', [GuideController::class, 'index'])
+            ->name('admin.guide');
+
+        // Kelola Testimoni
+        Route::get('/testimoni', [TestimonialController::class, 'index'])
+            ->name('admin.testimoni');
+
+        // Galeri Paket
+        // Galeri Paket
+        Route::get('/package-gallery', [PackageGalleryController::class, 'index'])
+            ->name('admin.package-gallery');
+
+        Route::post('/package-gallery', [PackageGalleryController::class, 'store'])
+            ->name('admin.package-gallery.store');
+
+        Route::put('/package-gallery/{id}', [PackageGalleryController::class, 'update'])
+            ->name('admin.package-gallery.update');
+
+        Route::delete('/package-gallery/{id}', [PackageGalleryController::class, 'destroy'])
+            ->name('admin.package-gallery.destroy');
+
+        // Profile Admin
+        Route::get('/profile', [AdminController::class, 'profile'])
+            ->name('admin.profile');
+
+        Route::put('/profile', [AdminController::class, 'updateProfile'])
+            ->name('admin.update-profile');
+
+        Route::post('/change-password', [AdminController::class, 'changePassword'])
+            ->name('admin.change-password');
+    });

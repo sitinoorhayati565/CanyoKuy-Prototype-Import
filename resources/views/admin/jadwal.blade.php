@@ -81,7 +81,7 @@
     .modal-actions { display: flex; gap: 12px; margin-top: 24px; justify-content: flex-end; }
     .btn-cancel { background: white; border: 1px solid #e2e8f0; padding: 10px 20px; border-radius: 10px; cursor: pointer; }
 </style>
-
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <div class="green-banner-header">
     <div class="banner-left">
         <div class="banner-icon"><i class="fas fa-calendar-alt"></i></div>

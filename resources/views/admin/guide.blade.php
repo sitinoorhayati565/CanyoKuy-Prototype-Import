@@ -313,7 +313,7 @@
         color: var(--text-dark);
     }
 </style>
-
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <div class="green-banner-header">
     <div class="banner-left">
         <div class="banner-icon">

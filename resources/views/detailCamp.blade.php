@@ -806,6 +806,7 @@
             }
         }
     </style>
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
 <body>
@@ -1035,12 +1036,12 @@
 
     <script>
         // Toggle menu untuk HP
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('menuToggle');
             const navLinks = document.getElementById('navLinks');
 
             if (menuToggle && navLinks) {
-                menuToggle.addEventListener('click', function() {
+                menuToggle.addEventListener('click', function () {
                     navLinks.classList.toggle('active');
                     const icon = menuToggle.querySelector('i');
                     if (navLinks.classList.contains('active')) {
@@ -1076,7 +1077,7 @@
                 if (result.success && result.data.length > 0) {
                     const today = new Date();
                     today.setHours(0, 0, 0, 0);
-                    
+
                     let availableSchedules = result.data
                         .filter(schedule => {
                             const scheduleDate = new Date(schedule.schedule_date);
@@ -1084,10 +1085,10 @@
                             return scheduleDate >= today && remainingQuota > 0;
                         })
                         .sort((a, b) => new Date(a.schedule_date) - new Date(b.schedule_date));
-                    
+
                     let nearestSchedule = null;
                     let remainingQuota = 0;
-                    
+
                     if (availableSchedules.length > 0) {
                         nearestSchedule = availableSchedules[0];
                         remainingQuota = nearestSchedule.quota - (nearestSchedule.filled || 0);
@@ -1095,31 +1096,31 @@
                         const allUpcoming = result.data
                             .filter(schedule => new Date(schedule.schedule_date) >= today)
                             .sort((a, b) => new Date(a.schedule_date) - new Date(b.schedule_date));
-                        
+
                         if (allUpcoming.length > 0) {
                             nearestSchedule = allUpcoming[0];
                             remainingQuota = 0;
                         }
                     }
-                    
+
                     const quotaBadge = document.querySelector('#quotaBadge');
                     const scheduleBadge = document.getElementById('scheduleBadge');
                     const btnBook = document.getElementById('btnBook');
-                    
+
                     if (nearestSchedule) {
                         const formattedDate = new Date(nearestSchedule.schedule_date).toLocaleDateString('id-ID', {
                             year: 'numeric', month: 'long', day: 'numeric'
                         });
-                        
+
                         if (scheduleBadge) {
                             scheduleBadge.innerHTML = `<i class="fas fa-calendar-alt"></i> Jadwal: ${formattedDate}`;
                         }
-                        
+
                         currentSchedule = nearestSchedule;
                         document.body.dataset.scheduleDate = nearestSchedule.schedule_date;
                         document.body.dataset.scheduleQuota = remainingQuota;
                         document.body.dataset.scheduleId = nearestSchedule.id;
-                        
+
                         if (remainingQuota <= 0) {
                             if (quotaBadge) {
                                 quotaBadge.classList.remove('highlight');
@@ -1186,12 +1187,12 @@
         function showBookingPopup() {
             const remainingQuota = parseInt(document.body.dataset.scheduleQuota || '0');
             const scheduleDate = document.body.dataset.scheduleDate;
-            
+
             if (remainingQuota <= 0) {
                 alert('❌ Maaf, kuota sudah penuh! Tidak dapat melakukan pemesanan.');
                 return;
             }
-            
+
             if (!scheduleDate) {
                 alert('❌ Jadwal tidak tersedia! Silakan hubungi admin.');
                 return;

@@ -1517,6 +1517,7 @@
             }
         </style>
     @endif
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 </head>
 
 <body

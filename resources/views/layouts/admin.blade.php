@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Admin Panel - CanyoKuy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -456,29 +458,40 @@
             </div>
 
             <div class="nav-menu">
-                <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+                <a href="{{ route('admin.dashboard') }}"
+                    class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                     <i class="fas fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
-                <a href="{{ route('admin.booking') }}" class="nav-item {{ request()->routeIs('admin.booking') ? 'active' : '' }}">
+                <a href="{{ route('admin.booking') }}"
+                    class="nav-item {{ request()->routeIs('admin.booking') ? 'active' : '' }}">
                     <i class="fas fa-book"></i>
                     <span>Data Booking</span>
                 </a>
-                <a href="{{ route('admin.jadwal') }}" class="nav-item {{ request()->routeIs('admin.jadwal') ? 'active' : '' }}">
+                <a href="{{ route('admin.jadwal') }}"
+                    class="nav-item {{ request()->routeIs('admin.jadwal') ? 'active' : '' }}">
                     <i class="fas fa-calendar-alt"></i>
                     <span>Kelola Jadwal</span>
                 </a>
-                <a href="{{ route('admin.guide') }}" class="nav-item {{ request()->routeIs('admin.guide') ? 'active' : '' }}">
+                <a href="{{ route('admin.guide') }}"
+                    class="nav-item {{ request()->routeIs('admin.guide') ? 'active' : '' }}">
                     <i class="fas fa-users"></i>
                     <span>Kelola Tour Guide</span>
                 </a>
-                <a href="{{ route('admin.testimoni') }}" class="nav-item {{ request()->routeIs('admin.testimoni') ? 'active' : '' }}">
+                <a href="{{ route('admin.testimoni') }}"
+                    class="nav-item {{ request()->routeIs('admin.testimoni') ? 'active' : '' }}">
                     <i class="fas fa-star"></i>
                     <span>Kelola Testimoni</span>
                 </a>
+                <a href="{{ route('admin.profile') }}"
+                    class="nav-item {{ request()->routeIs('admin.profile') ? 'active' : '' }}">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Profile Admin</span>
+                </a>
 
                 <div class="logout-btn">
-                    <a href="{{ route('admin.logout') }}" class="nav-item" onclick="return confirm('Yakin ingin logout?')">
+                    <a href="{{ route('admin.logout') }}" class="nav-item"
+                        onclick="return confirm('Yakin ingin logout?')">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span>
                     </a>
