@@ -442,8 +442,9 @@
             border-radius: 3px;
         }
     </style>
+    
 </head>
-
+<script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
 <body>
     <div class="admin-container">
 
